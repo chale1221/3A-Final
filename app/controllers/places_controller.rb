@@ -1,4 +1,4 @@
-Class PlacesController < ApplicationController
+class PlacesController < ApplicationController
 
 
   def index
@@ -7,6 +7,18 @@ Class PlacesController < ApplicationController
 
   def show
     @places = Place.find_by({"id" => params["id"]})
-    @entries = Entry.where({"places_id" => @places["id"]})
+    @entries = Entry.where({"place_id" => @places["id"]})
+  end
+
+  def new
+
+  end
+
+  def create
+  @places = Place.new
+  @places["name"] = params["name"]
+  @places.save
+
+  redirect_to "/places"
   end
 end
