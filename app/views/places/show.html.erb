@@ -1,5 +1,6 @@
 <!-- Place details page -->
 
+
 <h1><%= @places["name"] %></h1>
 
 <% for entry in @entries %>
@@ -13,7 +14,7 @@
 <% end %>
 
 <p>
-  <a href="/entries/new">New Post</a>
+  <a href="/entries/new?place_id=<%= @places["id"]%>">New Post</a>
 </p>
 
 <p>
